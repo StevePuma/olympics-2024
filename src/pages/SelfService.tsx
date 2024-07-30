@@ -1,5 +1,13 @@
 import React, { useState, useRef } from "react";
-import { Button, IconButton, Card, CardContent, CardActions, Box, Toolbar } from "@mui/material";
+import {
+  Button,
+  IconButton,
+  Card,
+  CardContent,
+  CardActions,
+  Box,
+  Toolbar,
+} from "@mui/material";
 import GridLayout, { WidthProvider, Layout } from "react-grid-layout";
 import html2canvas from "html2canvas";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -39,7 +47,10 @@ function SelfService(): JSX.Element {
       position: { x: 0, y: 0 },
       size: { width: 5, height: 7 },
     }));
-    setSelectedCharts((prevSelectedCharts) => [...prevSelectedCharts, ...newCharts]);
+    setSelectedCharts((prevSelectedCharts) => [
+      ...prevSelectedCharts,
+      ...newCharts,
+    ]);
     window.dispatchEvent(new Event("resize"));
   };
 
@@ -86,9 +97,19 @@ function SelfService(): JSX.Element {
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', padding: 2, bgcolor: 'background.default' }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        height: "100vh",
+        padding: 2,
+        bgcolor: "background.default",
+      }}
+    >
       <Toolbar />
-      <Box sx={{ mb: 2, display: 'flex', justifyContent: 'flex-start', ml: '' }}>
+      <Box
+        sx={{ mb: 2, display: "flex", justifyContent: "flex-start", ml: "" }}
+      >
         <Button
           onClick={openChartLibrary}
           variant="contained"
@@ -110,11 +131,11 @@ function SelfService(): JSX.Element {
         ref={exportRef}
         id="dashboard-container"
         sx={{
-          ml: '',
+          ml: "",
           flex: 1,
           position: "relative",
           overflow: "auto",
-          backgroundColor: 'background.default',
+          backgroundColor: "background.default",
           border: "2px solid transparent",
           borderRadius: "8px",
           padding: "16px",
@@ -204,7 +225,10 @@ function SelfService(): JSX.Element {
         </ResponsiveGridLayout>
       </Box>
       {isChartLibraryOpen && (
-        <ChartLibrary onSelectCharts={handleSelectCharts} onClose={closeChartLibrary} />
+        <ChartLibrary
+          onSelectCharts={handleSelectCharts}
+          onClose={closeChartLibrary}
+        />
       )}
     </Box>
   );

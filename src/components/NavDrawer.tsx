@@ -1,30 +1,30 @@
 // src/components/NavDrawer.tsx
-import React from 'react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import CssBaseline from '@mui/material/CssBaseline';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
-import logo from '../assets/Paris.png';
-import SisenseLogo from '../assets/Sisense.png';
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
-import PsychologyIcon from '@mui/icons-material/Psychology';
-import AssessmentIcon from '@mui/icons-material/Assessment';
+import React from "react";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import CssBaseline from "@mui/material/CssBaseline";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import List from "@mui/material/List";
+import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
+import logo from "../assets/Paris.png";
+import SisenseLogo from "../assets/Sisense.png";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import PsychologyIcon from "@mui/icons-material/Psychology";
+import AssessmentIcon from "@mui/icons-material/Assessment";
 
 const drawerWidth = 240;
 
 const NavDrawer: React.FC = () => {
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -40,12 +40,12 @@ const NavDrawer: React.FC = () => {
         sx={{
           width: drawerWidth,
           flexShrink: 0,
-          '& .MuiDrawer-paper': {
+          "& .MuiDrawer-paper": {
             width: drawerWidth,
-            boxSizing: 'border-box',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
+            boxSizing: "border-box",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
           },
         }}
         variant="permanent"
@@ -57,8 +57,8 @@ const NavDrawer: React.FC = () => {
               component="img"
               sx={{
                 height: 200,
-                width: '100%',
-                objectFit: 'contain',
+                width: "100%",
+                objectFit: "contain",
               }}
               alt="Paris Logo"
               src={logo}
@@ -66,13 +66,16 @@ const NavDrawer: React.FC = () => {
           </Toolbar>
           <Divider />
           <List>
-            {['Medals', 'Ai Insights', 'Self Service'].map((text) => (
+            {["Medals", "Ai Insights", "Self Service"].map((text) => (
               <ListItem key={text} disablePadding>
-                <ListItemButton component={Link} to={`/${text.toLowerCase().replace(' ', '')}`}>
+                <ListItemButton
+                  component={Link}
+                  to={`/${text.toLowerCase().replace(" ", "")}`}
+                >
                   <ListItemIcon>
-                    {text === 'Medals' && <EmojiEventsIcon />}
-                    {text === 'Ai Insights' && <PsychologyIcon />}
-                    {text === 'Self Service' && <AssessmentIcon />}
+                    {text === "Medals" && <EmojiEventsIcon />}
+                    {text === "Ai Insights" && <PsychologyIcon />}
+                    {text === "Self Service" && <AssessmentIcon />}
                   </ListItemIcon>
                   <ListItemText primary={text} />
                 </ListItemButton>
@@ -84,13 +87,13 @@ const NavDrawer: React.FC = () => {
           <Button
             variant="contained"
             sx={{
-              backgroundColor: '#00b0ff',
-              color: 'white',
-              width: '100%',
-              textTransform: 'none',
-              fontWeight: 'bold',
-              '&:hover': {
-                backgroundColor: '#008aff',
+              backgroundColor: "#00b0ff",
+              color: "white",
+              width: "100%",
+              textTransform: "none",
+              fontWeight: "bold",
+              "&:hover": {
+                backgroundColor: "#008aff",
               },
             }}
             href="https://www.sisense.com/get/book-demo/"
@@ -103,8 +106,8 @@ const NavDrawer: React.FC = () => {
             component="img"
             sx={{
               height: 100,
-              width: '100%',
-              objectFit: 'contain',
+              width: "100%",
+              objectFit: "contain",
             }}
             alt="Sisense Logo"
             src={SisenseLogo}

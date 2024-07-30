@@ -20,10 +20,9 @@ const ChartLibrary: React.FC<ChartLibraryProps> = ({
   const [selectedChartOids, setSelectedChartOids] = useState<string[]>([]);
 
   const { dashboard, isLoading, isError, error } = useGetDashboardModel({
-    dashboardOid: '66a82ae63cb1d40033b87415', // Replace 'your-dashboard-id' with the actual dashboard ID
+    dashboardOid: "66a82ae63cb1d40033b87415", // Replace 'your-dashboard-id' with the actual dashboard ID
     includeWidgets: true,
   });
-  
 
   const handleToggleChart = (chartOid: string) => {
     setSelectedChartOids((prevSelectedChartOids) => {
@@ -68,7 +67,7 @@ const ChartLibrary: React.FC<ChartLibraryProps> = ({
                 <Divider />
                 <DashboardWidget
                   widgetOid={widget.oid}
-                  dashboardOid={'66a82ae63cb1d40033b87415'}
+                  dashboardOid={"66a82ae63cb1d40033b87415"}
                 />
               </div>
               <div

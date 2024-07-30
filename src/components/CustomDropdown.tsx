@@ -1,5 +1,5 @@
-import React from 'react';
-import { Select, MenuItem, FormControl, InputLabel } from '@mui/material';
+import React from "react";
+import { Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 
 interface CustomDropdownProps {
   label: string;
@@ -8,12 +8,17 @@ interface CustomDropdownProps {
   onChange: (value: string) => void;
 }
 
-const CustomDropdown: React.FC<CustomDropdownProps> = ({ label, value, options, onChange }) => {
+const CustomDropdown: React.FC<CustomDropdownProps> = ({
+  label,
+  value,
+  options,
+  onChange,
+}) => {
   return (
     <FormControl fullWidth>
       <InputLabel>{label}</InputLabel>
       <Select
-        value={value || ''}
+        value={value || ""}
         onChange={(e) => onChange(e.target.value as string)}
         label={label}
       >

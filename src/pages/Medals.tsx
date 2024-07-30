@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
-import Grid from '@mui/material/Grid';
-import DashboardCard from '../components/dashboard-card';
-import { Chart, ScattermapChart, ColumnChart, useExecuteQuery, IndicatorChart } from '@sisense/sdk-ui';
-import * as DM from '../olympics';
-import { measureFactory, Filter, filterFactory } from '@sisense/sdk-data';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import CustomDropdown from '../components/CustomDropdown';
+import React, { useState } from "react";
+import Grid from "@mui/material/Grid";
+import DashboardCard from "../components/dashboard-card";
+import {
+  Chart,
+  ScattermapChart,
+  ColumnChart,
+  useExecuteQuery,
+  IndicatorChart,
+} from "@sisense/sdk-ui";
+import * as DM from "../olympics";
+import { measureFactory, Filter, filterFactory } from "@sisense/sdk-data";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import CustomDropdown from "../components/CustomDropdown";
 
 const Medals: React.FC = () => {
   const [filtersport, setFiltersport] = useState<string | null>(null);
@@ -33,11 +39,13 @@ const Medals: React.FC = () => {
 
   const activeFilters: Filter[] = [
     filtersport ? filterFactory.equals(DM.eventscsv.sport, filtersport) : null,
-    filterCountry ? filterFactory.equals(DM.medals_totalcsv.country_code, filterCountry) : null,
+    filterCountry
+      ? filterFactory.equals(DM.medals_totalcsv.country_code, filterCountry)
+      : null,
   ].filter((f) => !!f) as Filter[];
 
   return (
-    <Box sx={{ flexGrow: 1, height: '100%', overflow: 'auto', padding: 2 }}>
+    <Box sx={{ flexGrow: 1, height: "100%", overflow: "auto", padding: 2 }}>
       <Toolbar />
       <Grid container spacing={2}>
         {/* Dropdown filters */}
@@ -60,45 +68,63 @@ const Medals: React.FC = () => {
 
         {/* Placeholders for indicators */}
         <Grid item xs={4}>
-          <DashboardCard title="Total Gold Medals" gridColumns={12} height={100}>
-          <IndicatorChart
-      dataSet={DM.DataSource}
-      dataOptions={{
-        value: [
-          measureFactory.sum(
-            DM.medals_totalcsv.GoldMedal, 'Total Gold Medals')
-        ]
-      }}
-      filters={activeFilters}
-    />
+          <DashboardCard
+            title="Total Gold Medals"
+            gridColumns={12}
+            height={100}
+          >
+            <IndicatorChart
+              dataSet={DM.DataSource}
+              dataOptions={{
+                value: [
+                  measureFactory.sum(
+                    DM.medals_totalcsv.GoldMedal,
+                    "Total Gold Medals",
+                  ),
+                ],
+              }}
+              filters={activeFilters}
+            />
           </DashboardCard>
         </Grid>
         <Grid item xs={4}>
-          <DashboardCard title="Total Silver Medals" gridColumns={12} height={100}>
-          <IndicatorChart
-      dataSet={DM.DataSource}
-      dataOptions={{
-        value: [
-          measureFactory.sum(
-            DM.medals_totalcsv.SilverMedal, 'Total Silver Medals')
-        ]
-      }}
-      filters={activeFilters}
-    />
+          <DashboardCard
+            title="Total Silver Medals"
+            gridColumns={12}
+            height={100}
+          >
+            <IndicatorChart
+              dataSet={DM.DataSource}
+              dataOptions={{
+                value: [
+                  measureFactory.sum(
+                    DM.medals_totalcsv.SilverMedal,
+                    "Total Silver Medals",
+                  ),
+                ],
+              }}
+              filters={activeFilters}
+            />
           </DashboardCard>
         </Grid>
         <Grid item xs={4}>
-          <DashboardCard title="Total Bronze Medals" gridColumns={12} height={100}>
-          <IndicatorChart
-      dataSet={DM.DataSource}
-      dataOptions={{
-        value: [
-          measureFactory.sum(
-            DM.medals_totalcsv.BronzeMedal, 'Total Gold Medals')
-        ]
-      }}
-      filters={activeFilters}
-    />
+          <DashboardCard
+            title="Total Bronze Medals"
+            gridColumns={12}
+            height={100}
+          >
+            <IndicatorChart
+              dataSet={DM.DataSource}
+              dataOptions={{
+                value: [
+                  measureFactory.sum(
+                    DM.medals_totalcsv.BronzeMedal,
+                    "Total Gold Medals",
+                  ),
+                ],
+              }}
+              filters={activeFilters}
+            />
           </DashboardCard>
         </Grid>
 
@@ -111,15 +137,24 @@ const Medals: React.FC = () => {
                   dataOptions={{
                     category: [DM.medals_totalcsv.country_code],
                     value: [
-                      measureFactory.sum(DM.medals_totalcsv.GoldMedal, 'Total Gold Medals'),
-                      measureFactory.sum(DM.medals_totalcsv.BronzeMedal, 'Total Bronze Medals'),
-                      measureFactory.sum(DM.medals_totalcsv.SilverMedal, 'Total Silver Medals')
+                      measureFactory.sum(
+                        DM.medals_totalcsv.GoldMedal,
+                        "Total Gold Medals",
+                      ),
+                      measureFactory.sum(
+                        DM.medals_totalcsv.BronzeMedal,
+                        "Total Bronze Medals",
+                      ),
+                      measureFactory.sum(
+                        DM.medals_totalcsv.SilverMedal,
+                        "Total Silver Medals",
+                      ),
                     ],
-                    breakBy: []
+                    breakBy: [],
                   }}
                   filters={activeFilters}
                   styleOptions={{
-                    subtype: 'column/stackedcolumn'
+                    subtype: "column/stackedcolumn",
                   }}
                 />
               </DashboardCard>
@@ -132,14 +167,17 @@ const Medals: React.FC = () => {
                   dataOptions={{
                     category: [DM.medals_totalcsv.country_code],
                     value: [
-                      measureFactory.sum(DM.medals_totalcsv.Total, 'Total Medals by Country'),
+                      measureFactory.sum(
+                        DM.medals_totalcsv.Total,
+                        "Total Medals by Country",
+                      ),
                     ],
                     breakBy: [],
                   }}
                   filters={activeFilters}
                   styleOptions={{
                     legend: { enabled: false },
-                    subtype: 'pie/ring',
+                    subtype: "pie/ring",
                   }}
                 />
               </DashboardCard>
@@ -153,13 +191,16 @@ const Medals: React.FC = () => {
               dataSet={DM.DataSource}
               dataOptions={{
                 geo: [DM.medals_totalcsv.country_code],
-                size: measureFactory.sum(DM.medals_totalcsv.Total, 'Medals by Country'),
+                size: measureFactory.sum(
+                  DM.medals_totalcsv.Total,
+                  "Medals by Country",
+                ),
                 colorBy: {
                   column: measureFactory.sum(
                     DM.medals_totalcsv.Total,
-                    'Color by Medals'
+                    "Color by Medals",
                   ),
-                  color: '#f72585',
+                  color: "#f72585",
                 },
                 details: DM.medals_totalcsv.country_code,
               }}
