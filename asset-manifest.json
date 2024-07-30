@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/olympics-2024/src/static/css/main.67c6ec4e.css",
-    "main.js": "/olympics-2024/src/static/js/main.e664c23a.js",
+    "main.js": "/olympics-2024/src/static/js/main.e701c1d1.js",
     "static/js/453.4a5e85cd.chunk.js": "/olympics-2024/src/static/js/453.4a5e85cd.chunk.js",
     "static/media/Paris.png": "/olympics-2024/src/static/media/Paris.9ca43298e29018db0f4f.png",
     "static/media/Sisense.png": "/olympics-2024/src/static/media/Sisense.cbeaff54fd218a60ef0c.png",
     "index.html": "/olympics-2024/src/index.html",
     "main.67c6ec4e.css.map": "/olympics-2024/src/static/css/main.67c6ec4e.css.map",
-    "main.e664c23a.js.map": "/olympics-2024/src/static/js/main.e664c23a.js.map",
+    "main.e701c1d1.js.map": "/olympics-2024/src/static/js/main.e701c1d1.js.map",
     "453.4a5e85cd.chunk.js.map": "/olympics-2024/src/static/js/453.4a5e85cd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.67c6ec4e.css",
-    "static/js/main.e664c23a.js"
+    "static/js/main.e701c1d1.js"
   ]
 }
