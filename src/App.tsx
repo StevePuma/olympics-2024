@@ -22,7 +22,6 @@ const App: React.FC = () => {
           <NavDrawer />
           <div style={{ flexGrow: 1, overflow: 'hidden' }}>
             <Routes>
-              <Route path="/" element={<Navigate to="/medals" />} />
               <Route path="/medals" element={<Medals />} />
               <Route path="/aiinsights" element={<AiInsights />} />
               <Route path="/selfservice" element={<SelfService />} />
