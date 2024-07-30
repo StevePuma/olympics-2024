@@ -1,46 +1,141 @@
-# Getting Started with Create React App
+## Paris Olympics 2024 Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![ParisOlympics](https://github.com/user-attachments/assets/fcb701ae-3aa2-46c2-a7be-d4d4d6b7d56e)
 
-## Available Scripts
 
-In the project directory, you can run:
+### Overview
 
-### `npm start`
+The Paris Olympics 2024 Dashboard is a React application that provides insights into the upcoming Olympics through various visualizations and AI-powered chat functionality. This application leverages Sisense Compose SDK for embedding analytics and AI capabilities, providing users with interactive data visualization and natural language querying (NLQ).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Embedded Analytics**: Using Sisense SDK to embed interactive data visualizations.
+- **AI-Powered Chatbot**: Sisense AI SDK integration to provide natural language querying capabilities.
+- **Dark Mode**: The application is hardcoded to use a dark theme for better visual experience.
+- **Navigation Highlighting**: The current page in the navigation drawer is highlighted to improve user experience.
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v14.x or higher)
+- npm (v6.x or higher)
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the Repository**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   git clone https://github.com/your-repo/paris-olympics-2024-dashboard.git
+   cd paris-olympics-2024-dashboard
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Install Dependencies**
 
-### `npm run eject`
+   ```bash
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. **Environment Variables**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   Create a `.env` file in the root of the project with the following content:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+   ```env
+   REACT_APP_SISENSE_URL=https://csdklivedemo.sisensepoc.com/
+   REACT_APP_SISENSE_TOKEN=your-sisense-api-token
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   Replace `your-sisense-api-token` with your actual Sisense API token.
 
-## Learn More
+### Sisense SDK Packages Used
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `@sisense/sdk-ui`: For embedding Sisense analytics components.
+- `@sisense/sdk-ui/ai`: For integrating Sisense AI capabilities into the application.
+- `@sisense/sdk-data`: For data manipulation and filtering within the Sisense context.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Project Structure
+
+```
+paris-olympics-2024-dashboard/
+│
+├── public/
+│   └── index.html
+│
+├── src/
+│   ├── assets/
+│   │   ├── Paris.png
+│   │   └── Sisense.png
+│   │
+│   ├── components/
+│   │   ├── NavDrawer.tsx
+│   │   └── OlympicsSchedule.tsx
+│   │
+│   ├── pages/
+│   │   ├── Medals.tsx
+│   │   ├── AiInsights.tsx
+│   │   └── SelfService.tsx
+│   │
+│   ├── App.tsx
+│   ├── index.tsx
+│   └── reportWebVitals.ts
+│
+├── .env
+├── .gitignore
+├── package.json
+└── README.md
+```
+
+### Components
+
+- **NavDrawer**: Navigation drawer with links to different pages and highlighting for the active page.
+- **OlympicsSchedule**: Component to display the schedule of Olympic events using an external API.
+- **Medals, AiInsights, SelfService**: Pages providing different insights and functionalities.
+
+### Usage
+
+1. **Start the Development Server**
+
+   ```bash
+   npm start
+   ```
+
+   This will start the development server and open the application in your default web browser.
+
+### Updating the .env File
+
+To authenticate the `SisenseContextProvider`, you need to update the `.env` file with your Sisense environment URL and API token. Ensure the following variables are set:
+
+```env
+REACT_APP_SISENSE_URL=https://csdklivedemo.sisensepoc.com/
+REACT_APP_SISENSE_TOKEN=your-sisense-api-token
+```
+
+### Running Tests
+
+To run tests for the application, use:
+
+```bash
+npm test
+```
+
+### Building for Production
+
+To build the application for production, use:
+
+```bash
+npm run build
+```
+
+This will create a `build` directory with the production build of the application.
+
+### License
+
+This project is licensed under the MIT License.
+
+### Acknowledgements
+
+- Sisense for providing the powerful SDKs and APIs for embedding analytics and AI capabilities.
+
+For any issues or contributions, please refer to the [GitHub repository](https://github.com/your-repo/paris-olympics-2024-dashboard).
+
+---
+
+This README provides an overview of the project, setup instructions, and details on the Sisense SDK packages used. By following the steps outlined, you can set up and run the Paris Olympics 2024 Dashboard application, leveraging Sisense's powerful analytics and AI features.
