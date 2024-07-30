@@ -4,7 +4,7 @@ import { HashRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import NavDrawer from './components/NavDrawer';
 import Medals from './pages/Medals';
-import AiInsights from './pages/AiInsights';
+import AiInsights from './pages/AiInisghts';
 import SelfService from './pages/SelfService';
 
 const darkTheme = createTheme({
