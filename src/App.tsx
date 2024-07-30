@@ -1,26 +1,36 @@
+// src/App.tsx
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import NavDrawer from './components/NavDrawer';
+import Medals from './pages/Medals';
+import AiInsights from './pages/AiInisghts';
+import SelfService from './pages/SelfService';
 
-function App() {
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <Router>
+        <div style={{ display: 'flex', height: '100vh' }}>
+          <NavDrawer />
+          <div style={{ flexGrow: 1, overflow: 'hidden' }}>
+            <Routes>
+              <Route path="/medals" element={<Medals />} />
+              <Route path="/aiinsights" element={<AiInsights />} />
+              <Route path="/selfservice" element={<SelfService />} />
+            </Routes>
+          </div>
+        </div>
+      </Router>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
