@@ -1,5 +1,5 @@
-// src/components/NavDrawer.tsx
 import React from "react";
+import { useLocation, Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -13,7 +13,6 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
 import logo from "../assets/Paris.png";
 import SisenseLogo from "../assets/Sisense.png";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
@@ -23,6 +22,8 @@ import AssessmentIcon from "@mui/icons-material/Assessment";
 const drawerWidth = 240;
 
 const NavDrawer: React.FC = () => {
+  const location = useLocation();
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -66,21 +67,37 @@ const NavDrawer: React.FC = () => {
           </Toolbar>
           <Divider />
           <List>
-            {["Medals", "Ai Insights", "Self Service"].map((text) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton
-                  component={Link}
-                  to={`/${text.toLowerCase().replace(" ", "")}`}
-                >
-                  <ListItemIcon>
-                    {text === "Medals" && <EmojiEventsIcon />}
-                    {text === "Ai Insights" && <PsychologyIcon />}
-                    {text === "Self Service" && <AssessmentIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
+            {["Medals", "Ai Insights", "Self Service"].map((text) => {
+              const to = `/${text.toLowerCase().replace(" ", "")}`;
+              const isActive = location.pathname === to;
+
+              return (
+                <ListItem key={text} disablePadding>
+                  <ListItemButton
+                    component={Link}
+                    to={to}
+                    sx={{
+                      backgroundColor: isActive ? "#00b0ff" : "inherit",
+                      "&:hover": {
+                        backgroundColor: "#008aff",
+                      },
+                    }}
+                  >
+                    <ListItemIcon
+                      sx={{ color: isActive ? "white" : "inherit" }}
+                    >
+                      {text === "Medals" && <EmojiEventsIcon />}
+                      {text === "Ai Insights" && <PsychologyIcon />}
+                      {text === "Self Service" && <AssessmentIcon />}
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={text}
+                      sx={{ color: isActive ? "white" : "inherit" }}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              );
+            })}
           </List>
         </Box>
         <Box p={2}>
