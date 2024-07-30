@@ -2,12 +2,12 @@
 import React, { useState } from "react";
 import { Box, Typography, Grid, CircularProgress } from "@mui/material";
 import { Chatbot, useGetNlgQueryResult } from "@sisense/sdk-ui/ai";
-import { PieChart, BarChart } from "@sisense/sdk-ui";
+import { BarChart } from "@sisense/sdk-ui";
 import * as DM from "../olympics";
 import { measureFactory, filterFactory, Filter } from "@sisense/sdk-data";
 
 const AiInsights: React.FC = () => {
-  const [goldMedalFilter, setGoldMedalFilter] = useState<Filter | null>(
+  const [goldMedalFilter] = useState<Filter | null>(
     filterFactory.topRanking(
       DM.medals_totalcsv.country_code,
       measureFactory.sum(DM.medals_totalcsv.GoldMedal, "Total Gold Medals"),
@@ -15,7 +15,7 @@ const AiInsights: React.FC = () => {
     ),
   );
 
-  const [silverMedalFilter, setSilverMedalFilter] = useState<Filter | null>(
+  const [silverMedalFilter] = useState<Filter | null>(
     filterFactory.topRanking(
       DM.medals_totalcsv.country_code,
       measureFactory.sum(DM.medals_totalcsv.SilverMedal, "Total Silver Medals"),
@@ -23,7 +23,7 @@ const AiInsights: React.FC = () => {
     ),
   );
 
-  const [bronzeMedalFilter, setBronzeMedalFilter] = useState<Filter | null>(
+  const [bronzeMedalFilter] = useState<Filter | null>(
     filterFactory.topRanking(
       DM.medals_totalcsv.country_code,
       measureFactory.sum(DM.medals_totalcsv.BronzeMedal, "Total Bronze Medals"),
