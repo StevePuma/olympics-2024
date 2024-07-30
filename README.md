@@ -2,7 +2,6 @@
 
 ![ParisOlympics](https://github.com/user-attachments/assets/fcb701ae-3aa2-46c2-a7be-d4d4d6b7d56e)
 
-
 ### Overview
 
 The Paris Olympics 2024 Dashboard is a React application that provides insights into the upcoming Olympics through various visualizations and AI-powered chat functionality. This application leverages Sisense Compose SDK for embedding analytics and AI capabilities, providing users with interactive data visualization and natural language querying (NLQ).
