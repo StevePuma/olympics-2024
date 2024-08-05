@@ -23,7 +23,7 @@ const App: React.FC = () => {
           <NavDrawer />
           <div style={{ flexGrow: 1, overflow: 'hidden' }}>
             <Routes>
-              <Route path="/" element={<Navigate to="/medals" />} />
+              <Route path="/" element={<Navigate to="/medalsoverview" />} />
               <Route path="/medalsoverview" element={<Medals />} />
               <Route path="/topwinners" element={<Dashboard />} />
               <Route path="/aiinsights" element={<AiInsights />} />
