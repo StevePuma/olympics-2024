@@ -6,6 +6,7 @@ import NavDrawer from './components/NavDrawer';
 import Medals from './pages/Medals';
 import AiInsights from './pages/AiInisghts';
 import SelfService from './pages/SelfService';
+import Dashboard from './pages/topmedals'
 
 const darkTheme = createTheme({
   palette: {
@@ -23,7 +24,8 @@ const App: React.FC = () => {
           <div style={{ flexGrow: 1, overflow: 'hidden' }}>
             <Routes>
               <Route path="/" element={<Navigate to="/medals" />} />
-              <Route path="/medals" element={<Medals />} />
+              <Route path="/medalsoverview" element={<Medals />} />
+              <Route path="/topwinners" element={<Dashboard />} />
               <Route path="/aiinsights" element={<AiInsights />} />
               <Route path="/selfservice" element={<SelfService />} />
             </Routes>

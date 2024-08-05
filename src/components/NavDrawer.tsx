@@ -67,7 +67,7 @@ const NavDrawer: React.FC = () => {
           </Toolbar>
           <Divider />
           <List>
-            {["Medals", "Ai Insights", "Self Service"].map((text) => {
+            {["Medals Overview", "Top Winners", "Ai Insights", "Self Service" ].map((text) => {
               const to = `/${text.toLowerCase().replace(" ", "")}`;
               const isActive = location.pathname === to;
 
@@ -86,9 +86,10 @@ const NavDrawer: React.FC = () => {
                     <ListItemIcon
                       sx={{ color: isActive ? "white" : "inherit" }}
                     >
-                      {text === "Medals" && <EmojiEventsIcon />}
+                      {text === "Medals Overview" && <EmojiEventsIcon />}
                       {text === "Ai Insights" && <PsychologyIcon />}
                       {text === "Self Service" && <AssessmentIcon />}
+                      {text === "Top Winners"&& <EmojiEventsIcon />}
                     </ListItemIcon>
                     <ListItemText
                       primary={text}
